@@ -15,6 +15,7 @@ source ${BF_INC}/samba-load-conf.sh
 # Generate Samba config file.
 #======================================================================================================================
 
+export SHARES=${SAMBA_SHARES}
 bf-esh \
     ${BF_TEMPLATES}/smb.conf.esh \
     ${SAMBA_CONF}
