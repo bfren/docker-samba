@@ -20,6 +20,7 @@ bf-echo "Samba version ${VERSION}."
 
 bf-echo "Installing Samba v${VERSION}..."
 apk add --no-cache \
+    bash \
     jq \
     samba=${VERSION}
 bf-done
