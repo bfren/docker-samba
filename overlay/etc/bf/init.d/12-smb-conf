@@ -15,7 +15,6 @@ source ${BF_INC}/samba-load-conf.sh
 # Generate Samba config file.
 #======================================================================================================================
 
-export SHARES=${SAMBA_SHARES}
 bf-esh \
     ${BF_TEMPLATES}/smb.conf.esh \
     ${SAMBA_CONF}
@@ -25,7 +24,7 @@ bf-esh \
 # Append each share.
 #======================================================================================================================
 
-for SHARE in ${SAMBA_SHARES} ; do
+for SHARE in "${SAMBA_SHARES[@]}" ; do
     export NAME=${SHARE}
     export COMMENT=`get-comment "${SHARE}"`
     export USERS=`get-users "${SHARE}"`
