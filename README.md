@@ -5,7 +5,7 @@
 
 [Docker Repository](https://hub.docker.com/r/bfren/samba) - [bfren ecosystem](https://github.com/bfren/docker)
 
-Comes with Samba pre-installed.
+Comes with Samba pre-installed, and creates config based on a json file (see shares-conf-sample.json).
 
 ## Contents
 
