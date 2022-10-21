@@ -16,5 +16,5 @@ source ${BF_INC}/samba-load-conf.sh
 #======================================================================================================================
 
 bf-esh \
-    ${BF_TEMPLATES}\smb.conf.esh \
+    ${BF_TEMPLATES}/smb.conf.esh \
     ${SAMBA_CONF}
