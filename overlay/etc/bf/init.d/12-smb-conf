@@ -5,34 +5,16 @@ export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Add Samba user.
-#======================================================================================================================
-
-UID=${SAMBA_UID:-1000}
-GID=${SAMBA_GID:-${UID}}
-bf-adduser samba ${UID} ${GID}
-
-
-#======================================================================================================================
-# Add users from shares configuration.
+# Load shares configuration.
 #======================================================================================================================
 
 source ${BF_INC}/samba-load-conf.sh
 
-bf-echo "Adding users..." "11-users"
-for USER in "${USERS[@]}" ; do
 
-    # if the user already exists, continue
-    [[ -n `grep ${USER} /etc/passwd` ]] && continue
+#======================================================================================================================
+# Generate Samba config file.
+#======================================================================================================================
 
-    # get password
-    PASS=`get-pass ${USER}`
-
-    # add system user
-    adduser -D ${USER}
-
-    # add Samba user
-    echo -e "${PASS}\n${PASS}" | smbpasswd -a ${USER}
-
-done
-bf-done "11-users"
+bf-esh \
+    ${BF_TEMPLATES}\smb.conf.esh
+    ${SAMBA_CONF}

@@ -34,5 +34,5 @@ function get-share() { jq --arg NAME "${1}" '.shares[] | select(.name == $NAME)'
 function get-pass() { get-user "${1}" | jq -r '.pass' ; }
 function get-comment() { get-share "${1}" | jq -r '.comment?' ; }
 function get-users() { get-share "${1}" | jq -r '.users[]?' ; }
-function get-browsable() { get-share "${1}" | jq -r '.browsable == true' ; }
-function get-writable() { get-share "${1}" | jq -r '.writable == true' ; }
+function get-browseable() { get-share "${1}" | jq -r 'if .browseable == false then "no" else "yes" end' ; }
+function get-writeable() { get-share "${1}" | jq -r 'if .writeable == false then "no" else "yes" end' ; }

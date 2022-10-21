@@ -61,13 +61,13 @@
                         "type": "string"
                     }
                 },
-                "browsable":{
+                "browseable":{
                     "type": "boolean",
-                    "description": "Whether or not the share should be browsable (default: true)."
+                    "description": "Whether or not the share should be browseable (default: true)."
                 },
-                "writable":{
+                "writeable":{
                     "type": "boolean",
-                    "description": "Whether or not the share should be writable (default: true)."
+                    "description": "Whether or not the share should be writeable (default: true)."
                 }
             }
         }

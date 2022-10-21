@@ -8,5 +8,8 @@ export BF_E=`basename ${0}`
 # Set environment variables.
 #======================================================================================================================
 
-bf-env "SAMBA_FILES" "/files"
-bf-env "SAMBA_CONF" "/etc/smb/smb.conf"
+FILES="/files"
+bf-env "SAMBA_FILES" ${FILES}
+bf-env "SAMBA_SHARES_CONF" "${FILES}/shares.json"
+
+bf-env "SAMBA_CONF" "/etc/samba/smb.conf"

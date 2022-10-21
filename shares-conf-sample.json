@@ -15,8 +15,8 @@
             "name": "example",
             "comment": "Optional description of share",
             "users": [ "fred" ],
-            "browsable": true,
-            "writable": false
+            "browseable": true,
+            "writeable": false
         },
         {
             "name": "another",
