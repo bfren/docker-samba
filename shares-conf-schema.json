@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/bfren/docker-sambe/main/smb-conf-schema.json",
+    "$id": "https://raw.githubusercontent.com/bfren/docker-sambe/main/shares-conf-schema.json",
     "$schema": "https://json-schema.org/draft-07/schema",
     "description": "Docker Samba Configuration Settings",
     "type": "object",
@@ -61,13 +61,13 @@
                         "type": "string"
                     }
                 },
-                "browsable":{
+                "browseable":{
                     "type": "boolean",
-                    "description": "Whether or not the share should be browsable (default: true)."
+                    "description": "Whether or not the share should be browseable (default: true)."
                 },
-                "writable":{
+                "writeable":{
                     "type": "boolean",
-                    "description": "Whether or not the share should be writable (default: true)."
+                    "description": "Whether or not the share should be writeable (default: true)."
                 }
             }
         }

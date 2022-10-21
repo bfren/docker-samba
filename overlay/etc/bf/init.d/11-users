@@ -1,0 +1,36 @@
+#!/command/with-contenv bash
+
+set -euo pipefail
+export BF_E=`basename ${0}`
+
+
+#======================================================================================================================
+# Add Samba user.
+#======================================================================================================================
+
+bf-adduser samba ${SAMBA_UID-}
+
+
+#======================================================================================================================
+# Add users from shares configuration.
+#======================================================================================================================
+
+source ${BF_INC}/samba-load-conf.sh
+
+bf-echo "Adding users..." "11-users"
+for USER in "${SAMBA_USERS[@]}" ; do
+
+    # if the user already exists, continue
+    [[ -n `grep ${USER} /etc/passwd` ]] && continue
+
+    # get password
+    PASS=`get-pass ${USER}`
+
+    # add system user
+    adduser -D ${USER}
+
+    # add Samba user
+    echo -e "${PASS}\n${PASS}" | smbpasswd -a ${USER}
+
+done
+bf-done "11-users"
