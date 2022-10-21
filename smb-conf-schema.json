@@ -1,0 +1,75 @@
+{
+    "$id": "https://raw.githubusercontent.com/bfren/docker-sambe/main/smb-conf-schema.json",
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "description": "Docker Samba Configuration Settings",
+    "type": "object",
+    "required": [
+        "users",
+        "shares"
+    ],
+    "properties": {
+        "users": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/user"
+            }
+        },
+        "shares": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/share"
+            }
+        }
+    },
+    "$defs": {
+        "user": {
+            "type": "object",
+            "required": [
+                "name",
+                "pass"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of user to grant access to shares."
+                },
+                "pass": {
+                    "type": "string",
+                    "description": "Password for user."
+                }
+            }
+        },
+        "share": {
+            "type": "object",
+            "required": [
+                "name",
+                "users"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the share (also the name of the directory being shared)."
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Optional description of the share."
+                },
+                "users" :{
+                    "type": "array",
+                    "description": "The users with permission to access this share (they must be defined in users array).",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "browsable":{
+                    "type": "boolean",
+                    "description": "Whether or not the share should be browsable (default: true)."
+                },
+                "writable":{
+                    "type": "boolean",
+                    "description": "Whether or not the share should be writable (default: true)."
+                }
+            }
+        }
+    }
+}
