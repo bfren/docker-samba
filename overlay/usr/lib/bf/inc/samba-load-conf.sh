@@ -15,10 +15,10 @@ fi
 # Load JSON and create USERS and SHARES arrays.
 #======================================================================================================================
 
-JSON=`cat "${SAMBA_SHARES_CONF}" | jq '.'`
+JSON=`cat ${SAMBA_SHARES_CONF} | jq '.'`
 
-declare -a USERS=(`jq -r '.users[].name' <<< "${JSON}"`)
-declare -a SHARES=(`jq -r '.shares[].name' <<< "${JSON}"`)
+declare -a SAMBA_USERS=(`jq -r '.users[].name' <<< "${JSON}"`)
+declare -a SAMBA_SHARES=(`jq -r '.shares[].name' <<< "${JSON}"`)
 
 
 #======================================================================================================================

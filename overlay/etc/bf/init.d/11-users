@@ -20,7 +20,7 @@ bf-adduser samba ${UID} ${GID}
 source ${BF_INC}/samba-load-conf.sh
 
 bf-echo "Adding users..." "11-users"
-for USER in "${USERS[@]}" ; do
+for USER in "${SAMBA_USERS[@]}" ; do
 
     # if the user already exists, continue
     [[ -n `grep ${USER} /etc/passwd` ]] && continue
