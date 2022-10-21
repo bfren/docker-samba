@@ -9,4 +9,4 @@ docker buildx build \
     -t samba-dev \
     . \
     && \
-    docker run -it -v `pwd`/shares-conf-sample.json:/files/shares-conf.json samba-dev sh
+    docker run -it -v `pwd`/shares-conf-sample.json:/files/shares.json samba-dev sh
