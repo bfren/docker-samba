@@ -219,13 +219,3 @@
 ;   writable = yes
 ;   printable = no
 ;   create mask = 0765
-
-<% for NAME in ${SHARES} ; do -%>
-[<%= "${NAME}" %>]
-   comment = <%= get-comment "${NAME}" %>
-   path = /files/<%= "${NAME}" %>
-   valid users = <%= get-users "${NAME}" %>
-   force user = samba
-   browsable = <%= get-browseable "${NAME}" %>
-   writable = <%= get-writeable "${NAME}" %>
-<% done -%>

@@ -19,3 +19,17 @@ export SHARES=${SAMBA_SHARES}
 bf-esh \
     ${BF_TEMPLATES}/smb.conf.esh \
     ${SAMBA_CONF}
+
+
+#======================================================================================================================
+# Append each share.
+#======================================================================================================================
+
+for SHARE in ${SAMBA_SHARES} ; do
+    export NAME=${SHARE}
+    export COMMENT=`get-comment "${SHARE}"`
+    export USERS=`get-users "${SHARE}"`
+    export BROWSEABLE=`get-browseable "${SHARE}"`
+    export WRITEABLE=`get-writeable "${SHARE}"`
+    esh ${BF_TEMPLATES}/share.esh >> ${SAMBA_CONF}
+done

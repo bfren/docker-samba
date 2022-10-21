@@ -1,0 +1,7 @@
+[<%= "${NAME}" %>]
+   comment = <%= "${COMMENT}" %>
+   path = /files/<%= "${NAME}" %>
+   valid users = <%= "${USERS}" %>
+   force user = samba
+   browsable = <%= "${BROWSEABLE}" %>
+   writable = <%= "${WRITEABLE}" %>
