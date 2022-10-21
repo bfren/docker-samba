@@ -220,7 +220,7 @@
 ;   printable = no
 ;   create mask = 0765
 
-<% for NAME in "${SAMBA_SHARES[@]}" ; do %>
+<% for NAME in "${SAMBA_SHARES[@]}" ; do -%>
 [<%= "${NAME}" %>]
    comment = <%= get-comment "${NAME}" %>
    path = /files/<%= "${NAME}" %>
@@ -228,4 +228,4 @@
    force user = samba
    browsable = <%= get-browseable "${NAME}" %>
    writable = <%= get-writeable "${NAME}" %>
-<% done %>
+<% done -%>
