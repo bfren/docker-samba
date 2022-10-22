@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/bfren/docker-sambe/main/shares-conf-schema.json",
+    "$id": "https://raw.githubusercontent.com/bfren/docker-samba/main/shares-conf-schema.json",
     "$schema": "https://json-schema.org/draft-07/schema",
     "description": "Docker Samba Configuration Settings",
     "type": "object",
@@ -54,18 +54,18 @@
                     "type": "string",
                     "description": "Optional description of the share."
                 },
-                "users" :{
+                "users": {
                     "type": "array",
-                    "description": "The users with permission to access this share (they must be defined in users array).",
+                    "description": "The users with permission to access this share (they must be defined in users array - or a '*' to indicate unrestricted access).",
                     "items": {
                         "type": "string"
                     }
                 },
-                "browseable":{
+                "browseable": {
                     "type": "boolean",
                     "description": "Whether or not the share should be browseable (default: true)."
                 },
-                "writeable":{
+                "writeable": {
                     "type": "boolean",
                     "description": "Whether or not the share should be writeable (default: true)."
                 }
