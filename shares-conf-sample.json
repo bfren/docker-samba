@@ -1,6 +1,6 @@
 {
-    "$schema": "https://raw.githubusercontent.com/bfren/docker-samba/main/smb-conf-schema.json",
-    "users" : [
+    "$schema": "https://raw.githubusercontent.com/bfren/docker-samba/main/shares-conf-schema.json",
+    "users": [
         {
             "name": "fred",
             "pass": "password"
@@ -14,13 +14,18 @@
         {
             "name": "example",
             "comment": "Optional description of share",
-            "users": [ "fred" ],
+            "users": [
+                "fred"
+            ],
             "browseable": false,
             "writeable": false
         },
         {
             "name": "another",
-            "users": [ "fred", "jones" ]
+            "users": [
+                "fred",
+                "jones"
+            ]
         }
     ]
 }
