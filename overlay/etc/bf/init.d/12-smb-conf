@@ -34,7 +34,7 @@ for SHARE in "${SAMBA_SHARES[@]}" ; do
     export WRITEABLE=`get-writeable "${SHARE}"`
 
     # use public template if permission is set to "*"
-    if [ "${USERS}" -eq "*" ] ; then
+    if [ "${USERS}" = "*" ] ; then
         esh ${BF_TEMPLATES}/public.esh >> ${SAMBA_CONF}
     else
         esh ${BF_TEMPLATES}/share.esh >> ${SAMBA_CONF}
