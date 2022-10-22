@@ -25,10 +25,19 @@ bf-esh \
 #======================================================================================================================
 
 for SHARE in "${SAMBA_SHARES[@]}" ; do
+
+    # get config values
     export NAME=${SHARE}
     export COMMENT=`get-comment "${SHARE}"`
     export USERS=`get-users "${SHARE}"`
     export BROWSEABLE=`get-browseable "${SHARE}"`
     export WRITEABLE=`get-writeable "${SHARE}"`
-    esh ${BF_TEMPLATES}/share.esh >> ${SAMBA_CONF}
+
+    # use public template if permission is set to "*"
+    if [ "${USERS}" -eq "*" ] ; then
+        esh ${BF_TEMPLATES}/public.esh >> ${SAMBA_CONF}
+    else
+        esh ${BF_TEMPLATES}/share.esh >> ${SAMBA_CONF}
+    fi
+
 done

@@ -1,0 +1,9 @@
+[<%= ${NAME} %>]
+   comment = <%= "${COMMENT}" %>
+   path = /files/<%= "${NAME}" %>
+   guest ok = yes
+   force user = samba
+   browsable = yes
+   writable = yes
+   create mask = 0666
+   directory mask = 0777
