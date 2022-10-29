@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/bfren/docker-samba/main/shares-conf-schema.json",
+    "$schema": "https://schemas.bfren.dev/docker/samba/shares.json",
     "users": [
         {
             "name": "fred",
