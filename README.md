@@ -28,4 +28,4 @@ Comes with Samba pre-installed, and creates config based on a json file (see sha
 
 ## Copyright
 
-> Copyright (c) 2022 [bfren](https://bfren.dev) (unless otherwise stated)
+> Copyright (c) 2022-2023 [bfren](https://bfren.dev) (unless otherwise stated)
