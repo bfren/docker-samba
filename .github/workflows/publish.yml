@@ -91,15 +91,6 @@ jobs:
             bfren/samba:samba${{ steps.samba_minor.outputs.contents }}
             bfren/samba:samba${{ steps.samba_minor.outputs.contents }}-${{ steps.version.outputs.contents }}
             bfren/samba:samba${{ steps.samba_revision.outputs.contents }}
-            ghcr.io/bfren/samba:latest
-            ghcr.io/bfren/samba:${{ steps.version_major.outputs.contents }}
-            ghcr.io/bfren/samba:${{ steps.version_minor.outputs.contents }}
-            ghcr.io/bfren/samba:${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/samba:samba${{ steps.samba_major.outputs.contents }}
-            ghcr.io/bfren/samba:samba${{ steps.samba_major.outputs.contents }}-${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/samba:samba${{ steps.samba_minor.outputs.contents }}
-            ghcr.io/bfren/samba:samba${{ steps.samba_minor.outputs.contents }}-${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/samba:samba${{ steps.samba_revision.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
