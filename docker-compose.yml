@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  samba:
+    image: bfren/samba:latest
+    container_name: samba
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:445:445"
+    volumes:
+      - ./v/files/shares.json:/files/shares.json:ro
+      - /data/share/example:/files/example
+      - /data/share/another:/files/another
+    networks:
+      - samba
+
+networks:
+  samba:
+    driver: bridge
+    name: samba
