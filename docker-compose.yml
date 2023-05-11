@@ -8,9 +8,9 @@ services:
     ports:
       - "0.0.0.0:445:445"
     volumes:
-      - ./v/files/shares.json:/files/shares.json:ro
-      - /data/share/example:/files/example
-      - /data/share/another:/files/another
+      - ./v/shares.json:/files/shares.json:ro
+      - ./v/example:/files/example
+      - ./v/another:/files/another
     networks:
       - samba
 
