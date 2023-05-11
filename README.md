@@ -25,32 +25,9 @@ Comes with Samba pre-installed, and creates config based on a json file (see sha
 
 ## Usage
 
-Sample Docker Compose and shares.json files:
+Sample files:
 
-```yaml
-# docker-compose.yml
-
-version: "3.8"
-
-services:
-  samba:
-    image: bfren/samba:latest
-    container_name: samba
-    restart: unless-stopped
-    ports:
-      - "0.0.0.0:445:445"
-    volumes:
-      - ./v/files/shares.json:/files/shares.json:ro
-      - /data/share/example:/files/example
-      - /data/share/another:/files/another
-    networks:
-      - samba
-
-networks:
-  samba:
-    driver: bridge
-    name: samba
-```
+https://github.com/bfren/docker-samba/blob/7bad94f7e9f5b45507c706c23d2c14048ac70138/docker-compose.yml#L1-L20
 
 https://github.com/bfren/docker-samba/blob/1ef5fa992ba96576db1707c550bb6750d6b5d1a4/shares-conf-sample.json#L1-L31
 
