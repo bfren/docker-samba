@@ -10,7 +10,7 @@ Comes with Samba pre-installed, and creates config based on a json file (see sha
 
 * [Ports](#ports)
 * [Volumes](#volumes)
-* [Usage](#usage)
+* [Sample Files](#sample-files)
 * [Licence / Copyright](#licence)
 
 ## Ports
@@ -23,13 +23,68 @@ Comes with Samba pre-installed, and creates config based on a json file (see sha
 | -------- | -------------------------------- |
 | `/files` | Contains the files to be shared. |
 
-## Usage
+## Sample Files
 
-Sample files:
+docker-compose.yml
 
-https://github.com/bfren/docker-samba/blob/7bad94f7e9f5b45507c706c23d2c14048ac70138/docker-compose.yml#L1-L20
+```yaml
+version: "3.8"
 
-https://github.com/bfren/docker-samba/blob/1ef5fa992ba96576db1707c550bb6750d6b5d1a4/shares-conf-sample.json#L1-L31
+services:
+  samba:
+    image: bfren/samba:latest
+    container_name: samba
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:445:445"
+    volumes:
+      - ./v/shares.json:/files/shares.json:ro
+      - ./v/example:/files/example
+      - ./v/another:/files/another
+    networks:
+      - samba
+
+networks:
+  samba:
+    driver: bridge
+    name: samba
+```
+
+shares.json
+
+```json
+{
+    "$schema": "https://schemas.bfren.dev/docker/samba/shares.json",
+    "users": [
+        {
+            "name": "fred",
+            "pass": "password"
+        },
+        {
+            "name": "jones",
+            "pass": "another"
+        }
+    ],
+    "shares": [
+        {
+            "name": "example",
+            "comment": "Optional description of share",
+            "users": [
+                "fred"
+            ],
+            "browseable": false,
+            "writeable": false
+        },
+        {
+            "name": "another",
+            "users": [
+                "fred",
+                "jones"
+            ]
+        }
+    ]
+}
+```
 
 ## Licence
 
