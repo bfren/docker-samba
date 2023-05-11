@@ -25,7 +25,7 @@ Comes with Samba pre-installed, and creates config based on a json file (see sha
 
 ## Sample Files
 
-docker-compose.yml
+`docker-compose.yml`
 
 ```yaml
 version: "3.8"
@@ -50,7 +50,7 @@ networks:
     name: samba
 ```
 
-shares.json
+`shares.json`
 
 ```json
 {
