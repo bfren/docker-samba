@@ -1,5 +1,5 @@
 [<%= ${NAME} %>]
-   comment = <%= "${COMMENT}" %>
+   <% if [ -n "${COMMENT-}" ] ; then %>comment = <%= "${COMMENT}" %><% fi %>
    path = /files/<%= "${NAME}" %>
    guest ok = yes
    force user = samba
