@@ -24,6 +24,7 @@ bf-esh \
 # Append each share.
 #======================================================================================================================
 
+bf-echo "Adding shares..."
 for SHARE in "${SAMBA_SHARES[@]}" ; do
 
     # get config values
@@ -32,6 +33,8 @@ for SHARE in "${SAMBA_SHARES[@]}" ; do
     export USERS=`get-users "${SHARE}"`
     export BROWSEABLE=`get-browseable "${SHARE}"`
     export WRITEABLE=`get-writeable "${SHARE}"`
+    bf-echo " .. ${NAME}"
+    bf-debug "    \"${COMMENT}\" - users: ${USERS}, browseable: ${BROWSEABLE}, writeable: ${WRITEABLE}"
 
     # use public template if permission is set to "*"
     if [ "${USERS}" = "*" ] ; then
@@ -41,3 +44,4 @@ for SHARE in "${SAMBA_SHARES[@]}" ; do
     fi
 
 done
+bf-done

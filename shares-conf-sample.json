@@ -26,6 +26,11 @@
                 "fred",
                 "jones"
             ]
+        },
+        {
+            "name": "public",
+            "comment": "Accessible by all users (and guests)",
+            "users": [ "*" ]
         }
     ]
 }
