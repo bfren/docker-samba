@@ -1,5 +1,5 @@
 [<%= "${NAME}" %>]
-   comment = <% if [ "${COMMENT}" != "null" ] ; then echo "${COMMENT}" else echo "" ; fi %>
+   comment = <% if [ "${COMMENT}" != "null" ] ; then echo "${COMMENT}" ; else echo "" ; fi %>
    path = /files/<%= "${NAME}" %>
    valid users = <%= "${USERS}" %>
    force user = samba
