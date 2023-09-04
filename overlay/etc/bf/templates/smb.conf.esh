@@ -50,6 +50,9 @@
 # otherwise the user "nobody" is used
 ;  guest account = pcguest
 
+# Map bad users (e.g. no user details provided)
+  map to guest = bad user
+
 # this tells Samba to use a separate log file for each machine
 # that connects
    log file = /usr/local/samba/var/log.%m
