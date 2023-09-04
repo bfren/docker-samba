@@ -1,7 +1,8 @@
 [<%= ${NAME} %>]
    comment = <% if [ "${COMMENT}" != "null" ] ; then printf "${COMMENT}" ; else printf "" ; fi %>
    path = /files/<%= "${NAME}" %>
-   guest ok = yes
+   public = yes
+   only guest = yes
    force user = samba
    browsable = yes
    writable = yes
