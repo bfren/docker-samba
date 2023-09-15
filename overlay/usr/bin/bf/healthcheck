@@ -5,6 +5,7 @@ export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Attempt to connect to the local Samba server.
+# Attempt to connect to the local Samba server and list shares.
 #======================================================================================================================
 
+smbclient -L \\localhost -U % -m SMB3 > /dev/null 2>&1 || exit 1
