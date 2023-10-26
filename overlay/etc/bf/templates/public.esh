@@ -1,6 +1,6 @@
-[<%= ${NAME} %>]
-   comment = <% if [ "${COMMENT}" != "null" ] ; then printf "${COMMENT}" ; else printf "" ; fi %>
-   path = /files/<%= "${NAME}" %>
+[<% bf-env -P NAME %>]
+   comment = <% bf-env -P COMMENT "" %>
+   path = /files/<% bf-env -P NAME %>
    public = yes
    only guest = yes
    force user = samba

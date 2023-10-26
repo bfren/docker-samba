@@ -1,14 +1,17 @@
-#!/command/with-contenv bash
+#!/bin/withenv sh
 
 set -euo pipefail
-export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Run Samba server.
+# Run preflight checks.
 #======================================================================================================================
 
-[[ ! -f ${SAMBA_CONF} ]] && bf-error "Samba configuration file not found."
+nu -c "use bf-samba run ; run preflight"
 
-bf-echo "Starting Samba."
-smbd --configfile=${SAMBA_CONF} --debug-stdout --foreground
+
+#======================================================================================================================
+# Start Samba in foreground mode.
+#======================================================================================================================
+
+smbd --configfile=${BF_SAMBA_CONF} --debug-stdout --foreground

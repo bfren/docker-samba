@@ -1,42 +1,21 @@
-#!/bin/sh
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
+use bf
 
+# Setup and install Unbound
+def main [] {
 
-#======================================================================================================================
-# Get Samba version.
-#======================================================================================================================
+    # get Samba version and install
+    cd /tmp
+    let version = bf fs read ./SAMBA_BUILD
+    bf write $"Installing Samba v($version)."
+    bf pkg install [$"samba=($version)"]
 
-cd /tmp
+    # save Samba version to build log
+    bf build add Samba $version
 
-VERSION=$(cat SAMBA_BUILD)
-bf-echo "Samba version ${VERSION}."
-
-
-#======================================================================================================================
-# Install Samba and dependencies.
-#======================================================================================================================
-
-bf-echo "Installing Samba v${VERSION}..."
-apk add --no-cache \
-    bash \
-    jq \
-    samba=${VERSION}
-bf-done
-
-
-#======================================================================================================================
-# Create directory not created by installation package.
-#======================================================================================================================
-
-CORES=/usr/local/samba/var/cores
-mkdir -p ${CORES}
-bf-ch -m 0700 -t d ${CORES}
-
-
-#======================================================================================================================
-# Cleanup.
-#======================================================================================================================
-
-bf-done
+    # create directory not created by installation package
+    let cores = "/usr/local/samba/var/cores"
+    mkdir $cores
+    bf ch --mode 0700 --type d $cores
+}

@@ -1,7 +1,7 @@
-[<%= "${NAME}" %>]
-   comment = <% if [ "${COMMENT}" != "null" ] ; then printf "${COMMENT}" ; else printf "" ; fi %>
-   path = /files/<%= "${NAME}" %>
-   valid users = <%= "${USERS}" %>
+[<% bf-env -P NAME %>]
+   comment = <% bf-env -P COMMENT "" %>
+   path = /files/<% bf-env -P NAME %>
+   valid users = <% bf-env -P USERS %>
    force user = samba
-   browsable = <%= "${BROWSEABLE}" %>
-   writable = <%= "${WRITEABLE}" %>
+   browsable = <% bf-env -P BROWSEABLE %>
+   writable = <% bf-env -P WRITEABLE %>

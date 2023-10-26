@@ -23,10 +23,10 @@
 [global]
 
 # workgroup = NT-Domain-Name or Workgroup-Name, eg: MIDEARTH
-   workgroup = <%= "${SAMBA_WORKGROUP:-WORKGROUP}" %>
+   workgroup = <% bf-env SAMBA_WORKGROUP WORKGROUP %>
 
 # server string is the equivalent of the NT Description field
-   server string = <%= "${SAMBA_SERVER:-Samba Server}" %>
+   server string = <% bf-env SAMBA_SERVER "Samba Server" %>
 
 # Server role. Defines in which mode Samba will operate. Possible
 # values are "standalone server", "member server", "classic primary

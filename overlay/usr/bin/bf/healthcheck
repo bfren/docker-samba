@@ -1,11 +1,13 @@
-#!/command/with-contenv bash
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
+use bf
+bf env load -x
 
+# Attempt to connect to the local Samba server and list shares
+def main [] {
+    bf write debug $"Requesting local shares."
 
-#======================================================================================================================
-# Attempt to connect to the local Samba server and list shares.
-#======================================================================================================================
-
-smbclient -L \\localhost -U % -m SMB3 > /dev/null 2>&1 || exit 1
+    # capture output of drill executable
+    let result = do { ^smbclient -L \\localhost -U % -m SMB3 } | complete
+    if $result.exit_code > 0 { bf write error --code $result.exit_code $result.stderr }
+}
