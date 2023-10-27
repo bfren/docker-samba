@@ -8,6 +8,5 @@ def main [] {
     bf write debug $"Requesting local shares."
 
     # capture output of drill executable
-    let result = do { ^smbclient -L \\localhost -U % -m SMB3 } | complete
-    if $result.exit_code > 0 { bf write error --code $result.exit_code $result.stderr }
+    { ^smbclient -L \\localhost -U % -m SMB3 } | bf handle | ignore
 }

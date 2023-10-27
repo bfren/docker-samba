@@ -15,14 +15,11 @@ def main [] {
         if (user_exists $user.name) { continue }
 
         # we need to add a system user account first, but the password is managed by Samba
-        let result = do {
+        {
             bf write debug $" .. ($user.name)"
             ^adduser -D $user.name
             ^echo -e $"($user.pass)\n($user.pass)" | ^smbpasswd -a $user.name
-        } | complete
-
-        # if the operation failed, throw an error
-        if $result.exit_code > 0 { bf write error --code $result.exit_code $result.stderr }
+        } | bf handle
     }
 }
 
