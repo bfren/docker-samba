@@ -5,8 +5,7 @@ bf env load -x
 
 # Attempt to connect to the local Samba server and list shares
 def main [] {
-    bf write debug $"Requesting local shares."
-
     # capture output of drill executable
-    { ^smbclient -L \\localhost -U % -m SMB3 } | bf handle | ignore
+    bf write debug $"Requesting local shares."
+    { ^smbclient -L \\localhost -U % -m SMB3 } | bf handle -c | exit $in
 }
