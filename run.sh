@@ -4,6 +4,7 @@ IMAGE=`cat VERSION`
 
 docker buildx build \
     --load \
+    --progress plain \
     --build-arg BF_IMAGE=samba \
     --build-arg BF_VERSION=${IMAGE} \
     -f Dockerfile \
