@@ -1,11 +1,10 @@
-#!/usr/bin/nu
+#!/bin/sh
 
-use bf
-bf env load -x
+set -euo pipefail
 
-# Attempt to connect to the local Samba server and list shares
-def main [] {
-    # capture output of drill executable
-    bf write debug $"Requesting local shares."
-    { ^smbclient -L \\localhost -U % -m SMB3 } | bf handle -c | exit $in
-}
+
+#======================================================================================================================
+# Attempt to load shares for localhost
+#======================================================================================================================
+
+smbclient -L \\localhost -U % -m SMB3
