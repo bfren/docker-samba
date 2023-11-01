@@ -6,7 +6,7 @@ export def preflight [] {
     bf env load
 
     # manually set executing script
-    bf env set X samba/run
+    bf env x_set --override run samba
 
     # if we get here we are ready to start Samba
     bf write "Starting Samba in foreground mode."
