@@ -12,7 +12,7 @@ def main [] {
     bf write "Adding users."
     for $user in ($shares | get users) {
         # if the user already exists, move on
-        if (user_exists $user.name) { continue }
+        if (bf user exists $user.name) { continue }
 
         # we need to add a system user account first, but the password is managed by Samba
         {
@@ -21,11 +21,4 @@ def main [] {
             ^echo -e $"($user.pass)\n($user.pass)" | ^smbpasswd -a $user.name
         } | bf handle
     }
-}
-
-# Returns true if user $name is found in the passwd file
-def user_exists [
-    name: string    # User name to search
-] {
-    (open "/etc/passwd" | find $name | length) > 0
 }
