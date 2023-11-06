@@ -8,7 +8,7 @@ def main [] {
     let shares = bf-samba shares load
 
     # generate main Samba configuration file
-    bf esh template "smb.conf" (bf env SAMBA_ETC)
+    bf esh template (bf env SAMBA_CONF)
 
     # add shares
     bf write "Adding shares."
