@@ -5,7 +5,7 @@ bf env load
 # Add system and Samba users from the shares defition file
 def main [] {
     # add Samba user if it does not already exist
-    if not (user_exists samba) { bf user add --uid (bf env SAMBA_UID 1000) samba }
+    if not (bf user exists samba) { bf user add --uid (bf env SAMBA_UID 1000) samba }
 
     # load shares definitions
     let shares = bf-samba shares load
