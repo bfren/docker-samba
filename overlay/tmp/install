@@ -7,7 +7,7 @@ def main [] {
 
     # get Samba version and install
     cd /tmp
-    let version = bf fs read ./SAMBA_BUILD
+    let version = bf fs read SAMBA_BUILD
     bf write $"Installing Samba v($version)."
     bf pkg install [$"samba=($version)"]
 
