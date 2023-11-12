@@ -18,7 +18,7 @@ def main [] {
         {
             bf write debug $" .. ($user.name)"
             ^adduser -D $user.name
-            ^echo -e $"($user.pass)\n($user.pass)" | ^smbpasswd -a $user.name
+            $"($user.pass)\n($user.pass)" | ^smbpasswd -a $user.name
         } | bf handle
     }
 }
