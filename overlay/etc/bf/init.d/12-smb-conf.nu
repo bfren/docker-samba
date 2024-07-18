@@ -41,6 +41,6 @@ def main [] {
 def yes_or_no [
     input?: any
 ] {
-    let result = if $input == null { true } else { $input | into bool }
+    let result = if ($input | is-empty) { true } else { $input | into bool }
     if $result { "yes"} else { "no" }
 }
