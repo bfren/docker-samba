@@ -1,5 +1,5 @@
 [<% bf-env -P NAME %>]
-   comment = <% bf-env -P COMMENT "" %>
+   comment = <% bf-env --safe -P COMMENT "" %>
    path = /files/<% bf-env -P NAME %>
    public = yes
    only guest = yes
