@@ -26,11 +26,11 @@ def main [] {
         # if users contains * use the public template
         bf write debug $" .. ($name)"
         if "*" in $users {
-            with-env { NAME: $name, COMMENT: $comment } {
+            with-env {NAME: $name, COMMENT: $comment} {
                 bf esh $"($templates)/public.esh" | $"(char newline)($in)(char newline)" | save --append $conf
             }
         } else {
-            with-env { NAME: $name, COMMENT: $comment, USERS: $users, BROWSEABLE: $browseable, WRITEABLE: $writeable } {
+            with-env {NAME: $name, COMMENT: $comment, USERS: $users, BROWSEABLE: $browseable, WRITEABLE: $writeable} {
                 bf esh $"($templates)/share.esh" | $"(char newline)($in)(char newline)" | save --append $conf
             }
         }
