@@ -24,6 +24,9 @@
 
 # workgroup = NT-Domain-Name or Workgroup-Name, eg: MIDEARTH
    workgroup = <% bf-env SAMBA_WORKGROUP WORKGROUP %>
+<% if bf-env-not-empty SAMBA_NETBIOS_ALIAS ; then -%>
+   netbios aliases = <% bf-env SAMBA_NETBIOS_ALIAS %>
+<% fi %>
 
 # server string is the equivalent of the NT Description field
    server string = <% bf-env SAMBA_SERVER "Samba Server" %>
