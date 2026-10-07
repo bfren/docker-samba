@@ -15,7 +15,7 @@ def main [] {
     bf build add Samba $version
 
     # add bf-samba module to config
-    bf config use bf-samba
+    bf config use_mod bf-samba
 
     # create directory not created by installation package
     let cores = "/usr/local/samba/var/cores"
