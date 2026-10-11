@@ -14,4 +14,4 @@ nu -c "use bf-samba run ; run preflight"
 # Start Samba in foreground mode.
 #======================================================================================================================
 
-smbd --configfile=${BF_SAMBA_CONF} --debug-stdout --foreground
+exec smbd --configfile=${BF_SAMBA_CONF} --debug-stdout --foreground
