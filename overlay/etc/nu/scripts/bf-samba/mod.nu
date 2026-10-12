@@ -1,2 +1,1 @@
-export module run.nu
-export module shares.nu
+export use shares.nu
