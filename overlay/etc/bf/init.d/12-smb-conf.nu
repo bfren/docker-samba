@@ -1,5 +1,6 @@
 use bf
 use bf-samba
+use bf-s6
 bf env load
 
 # Add shares to Samba configuration
@@ -8,7 +9,7 @@ def main [] {
     let shares = bf-samba shares load
 
     # generate main Samba configuration file
-    bf esh template (bf env SAMBA_CONF)
+    bf-s6 esh template (bf env SAMBA_CONF)
 
     # add shares
     bf write "Adding shares."
