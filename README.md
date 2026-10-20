@@ -17,7 +17,7 @@ It is built on [Alpine + S6](https://github.com/bfren/docker-alpine-s6), with Sa
 ```yaml
 services:
   samba:
-    image: quay.io/bfren/samba:3.1
+    image: quay.io/bfren/samba:3.2
     restart: unless-stopped
     ports:
       - "0.0.0.0:445:445"
@@ -59,15 +59,15 @@ Run `docker compose up -d`, then connect to `\\<server>\docs` (Windows) or `smb:
 
 Images are published to Docker Hub (`bfren/samba`) and Quay.io (`quay.io/bfren/samba`) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`, with Samba 4.23.8 on Alpine 3.24.
 
-| Tag                  | Example            | Use when                                   |
-| -------------------- | ------------------ | ------------------------------------------ |
-| `latest`             |                    | You always want the newest image           |
-| `MAJOR`              | `3`                | You want updates, but not breaking changes |
-| `MINOR`              | `3.1`              | You want fixes only - **recommended**      |
-| `VERSION`            | `3.1.17`           | You want to pin this image exactly         |
-| `sambaX`, `sambaX.Y` | `samba4.23`        | You want a Samba version                   |
-| `sambaX.Y.Z`         | `samba4.23.8`      | You want an exact Samba release            |
-| `sambaX.Y-VERSION`   | `samba4.23-3.1.17` | You want to pin both                       |
+| Tag                  | Example           | Use when                                   |
+| -------------------- | ----------------- | ------------------------------------------ |
+| `latest`             |                   | You always want the newest image           |
+| `MAJOR`              | `3`               | You want updates, but not breaking changes |
+| `MINOR`              | `3.2`             | You want fixes only - **recommended**      |
+| `VERSION`            | `3.2.0`           | You want to pin this image exactly         |
+| `sambaX`, `sambaX.Y` | `samba4.23`       | You want a Samba version                   |
+| `sambaX.Y.Z`         | `samba4.23.8`     | You want an exact Samba release            |
+| `sambaX.Y-VERSION`   | `samba4.23-3.2.0` | You want to pin both                       |
 
 ## Configuration
 
