@@ -2,7 +2,7 @@
 
 use bf
 
-# Setup and install Unbound
+# Setup and install Samba
 def main [] {
 
     # get Samba version and install

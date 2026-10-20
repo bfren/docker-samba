@@ -1,12 +1,12 @@
-version: "3.8"
-
 services:
   samba:
-    image: bfren/samba:latest
+    image: bfren/samba:3
     container_name: samba
     restart: unless-stopped
     ports:
       - "0.0.0.0:445:445"
+    environment:
+      - BF_SAMBA_UID=1000
     volumes:
       - ./v/shares.json:/files/shares.json:ro
       - ./v/example:/files/example

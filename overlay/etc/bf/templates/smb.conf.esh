@@ -42,6 +42,12 @@
 # new domain.
    server role = standalone server
 
+# No home directory or printer shares - only the shares in shares.json
+   load printers = no
+   printing = bsd
+   printcap name = /dev/null
+   disable spoolss = yes
+
 # This option is important for security. It allows you to restrict
 # connections to machines which are on your local network. The
 # following example restricts access to two C class networks and
@@ -116,11 +122,6 @@
 
 
 #============================ Share Definitions ==============================
-[homes]
-   comment = Home Directories
-   browseable = no
-   writable = yes
-
 # Un-comment the following and create the netlogon directory for Domain Logons
 ; [netlogon]
 ;   comment = Network Logon Service
@@ -137,17 +138,6 @@
 ;    browseable = no
 ;    guest ok = yes
 
-
-# NOTE: If you have a BSD-style print system there is no need to
-# specifically define each individual printer
-[printers]
-   comment = All Printers
-   path = /usr/spool/samba
-   browseable = no
-# Set public = yes to allow user 'guest account' to print
-   guest ok = no
-   writable = no
-   printable = yes
 
 # This one is useful for people to share files
 ;[tmp]
