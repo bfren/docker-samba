@@ -26,6 +26,7 @@ export def install__tools_are_installed [] {
 
 export def scripts__parse [] {
     let paths = [
+        "/etc/bf/health.d/10-samba.nu"
         "/etc/s6-overlay/s6-rc.d/smb/run"
         "/etc/s6-overlay/s6-rc.d/smb/finish"
         "/etc/bf/init.d/11-users.nu"
