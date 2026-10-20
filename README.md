@@ -128,7 +128,7 @@ The health check (every 30 seconds) lists the shares as a guest, using SMB3.
 ## Testing
 
 ```sh
-./test.sh   # builds the image and runs /test
+./test.nu   # builds the image and runs /test
 ./run.sh    # builds the image and opens a shell, using shares-conf-sample.json
 ```
 
