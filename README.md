@@ -1,6 +1,6 @@
 # Samba
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-samba) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fsamba) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fsamba) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bfren/docker-samba/dev.yml?branch=main)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-samba) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fsamba) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fsamba) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bfren/docker-samba/build.yml?branch=main)
 
 [Docker Hub](https://hub.docker.com/r/bfren/samba) - [Quay.io](https://quay.io/repository/bfren/samba) - [bfren ecosystem](https://github.com/bfren/docker)
 
@@ -17,7 +17,7 @@ It is built on [Alpine + S6](https://github.com/bfren/docker-alpine-s6), with Sa
 ```yaml
 services:
   samba:
-    image: quay.io/bfren/samba:3.2
+    image: quay.io/bfren/samba:4.0
     restart: unless-stopped
     ports:
       - "0.0.0.0:445:445"
@@ -62,12 +62,12 @@ Images are published to Docker Hub (`bfren/samba`) and Quay.io (`quay.io/bfren/s
 | Tag                  | Example           | Use when                                   |
 | -------------------- | ----------------- | ------------------------------------------ |
 | `latest`             |                   | You always want the newest image           |
-| `MAJOR`              | `3`               | You want updates, but not breaking changes |
-| `MINOR`              | `3.2`             | You want fixes only - **recommended**      |
-| `VERSION`            | `3.2.0`           | You want to pin this image exactly         |
+| `MAJOR`              | `4`               | You want updates, but not breaking changes |
+| `MINOR`              | `4.0`             | You want fixes only - **recommended**      |
+| `VERSION`            | `4.0.0`           | You want to pin this image exactly         |
 | `sambaX`, `sambaX.Y` | `samba4.23`       | You want a Samba version                   |
 | `sambaX.Y.Z`         | `samba4.23.8`     | You want an exact Samba release            |
-| `sambaX.Y-VERSION`   | `samba4.23-3.2.0` | You want to pin both                       |
+| `sambaX.Y-VERSION`   | `samba4.23-4.0.0` | You want to pin both                       |
 
 ## Configuration
 
