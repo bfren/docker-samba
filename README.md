@@ -64,10 +64,10 @@ Images are published to Docker Hub (`bfren/samba`) and Quay.io (`quay.io/bfren/s
 | `latest`             |                   | You always want the newest image           |
 | `MAJOR`              | `4`               | You want updates, but not breaking changes |
 | `MINOR`              | `4.0`             | You want fixes only - **recommended**      |
-| `VERSION`            | `4.0.0`           | You want to pin this image exactly         |
+| `VERSION`            | `4.0.1`           | You want to pin this image exactly         |
 | `sambaX`, `sambaX.Y` | `samba4.23`       | You want a Samba version                   |
 | `sambaX.Y.Z`         | `samba4.23.8`     | You want an exact Samba release            |
-| `sambaX.Y-VERSION`   | `samba4.23-4.0.0` | You want to pin both                       |
+| `sambaX.Y-VERSION`   | `samba4.23-4.0.1` | You want to pin both                       |
 
 ## Configuration
 
