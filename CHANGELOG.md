@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - README: the Quickstart is now numbered steps, including creating the share folders with the right owner.
+- `docker-compose.yml` now matches the README Quickstart - it used the old `bfren/samba:3` image.
 
 ## [4.0.2] - 2026-11-10
 

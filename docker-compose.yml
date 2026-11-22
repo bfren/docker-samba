@@ -1,7 +1,6 @@
 services:
   samba:
-    image: bfren/samba:3
-    container_name: samba
+    image: quay.io/bfren/samba:4.0
     restart: unless-stopped
     ports:
       - "0.0.0.0:445:445"
@@ -9,12 +8,5 @@ services:
       - BF_SAMBA_UID=1000
     volumes:
       - ./v/shares.json:/files/shares.json:ro
-      - ./v/example:/files/example
-      - ./v/another:/files/another
-    networks:
-      - samba
-
-networks:
-  samba:
-    driver: bridge
-    name: samba
+      - ./v/docs:/files/docs
+      - ./v/public:/files/public

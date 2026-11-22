@@ -29,6 +29,8 @@ services:
       - ./v/public:/files/public
 ```
 
+This example is also in [`docker-compose.yml`](docker-compose.yml).
+
 `v/shares.json`:
 
 ```json
