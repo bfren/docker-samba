@@ -75,6 +75,8 @@ Images are published to Docker Hub (`bfren/samba`) and Quay.io (`quay.io/bfren/s
 | `sambaX.Y.Z`         | `samba4.23.8`     | You want an exact Samba release            |
 | `sambaX.Y-VERSION`   | `samba4.23-4.0.3` | You want to pin both                       |
 
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
+
 ## Configuration
 
 ### Ports
