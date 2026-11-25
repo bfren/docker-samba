@@ -29,6 +29,8 @@ services:
       - ./v/public:/files/public
 ```
 
+This example is also in [`docker-compose.yml`](docker-compose.yml).
+
 `v/shares.json`:
 
 ```json
@@ -44,7 +46,11 @@ services:
 }
 ```
 
-Run `docker compose up -d`, then connect to `\\<server>\docs` (Windows) or `smb://<server>/docs` (macOS / Linux) as `fred`. See `shares-conf-sample.json` for more.
+1. Create the share folders (`v/docs` and `v/public`), owned by the user with UID `BF_SAMBA_UID` - run `id -u` on the host to find yours.
+2. Run `docker compose up -d`.
+3. Connect to `\\<server>\docs` (Windows) or `smb://<server>/docs` (macOS / Linux) as `fred`. The server doesn't appear when browsing the network, so type its name or address.
+
+See [`shares-conf-sample.json`](shares-conf-sample.json) for more options.
 
 ## Features
 
@@ -64,10 +70,12 @@ Images are published to Docker Hub (`bfren/samba`) and Quay.io (`quay.io/bfren/s
 | `latest`             |                   | You always want the newest image           |
 | `MAJOR`              | `4`               | You want updates, but not breaking changes |
 | `MINOR`              | `4.0`             | You want fixes only - **recommended**      |
-| `VERSION`            | `4.0.2`           | You want to pin this image exactly         |
+| `VERSION`            | `4.0.3`           | You want to pin this image exactly         |
 | `sambaX`, `sambaX.Y` | `samba4.23`       | You want a Samba version                   |
 | `sambaX.Y.Z`         | `samba4.23.8`     | You want an exact Samba release            |
-| `sambaX.Y-VERSION`   | `samba4.23-4.0.2` | You want to pin both                       |
+| `sambaX.Y-VERSION`   | `samba4.23-4.0.3` | You want to pin both                       |
+
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
 
 ## Configuration
 

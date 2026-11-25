@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.3] - 2026-11-25
+
+### Changed
+
+- Base image updated to `bfren/alpine-s6` 7.0.3, which rebuilds BusyBox, figlet and Nushell without changing
+  their versions - see the [Alpine + S6 changelog](https://github.com/bfren/docker-alpine-s6/blob/main/CHANGELOG.md).
+
+### Fixed
+
+- README: the Quickstart is now numbered steps, including creating the share folders with the right owner.
+- `docker-compose.yml` now matches the README Quickstart - it used the old `bfren/samba:3` image.
+
 ## [4.0.2] - 2026-11-10
 
 ### Changed
@@ -32,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Images are built and published by the shared `bfren/docker` build workflow (`build.yml`), replacing the separate
   `dev.yml` and `publish.yml` workflows.
 
+[4.0.3]: https://github.com/bfren/docker-samba/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/bfren/docker-samba/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/bfren/docker-samba/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/bfren/docker-samba/compare/v3.2.4...v4.0.0
